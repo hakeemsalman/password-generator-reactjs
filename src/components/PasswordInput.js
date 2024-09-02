@@ -22,24 +22,28 @@ export  class PasswordInput extends Component {
     super(props)
   
     this.state = {
-       passwordLength : 8
+       passwordLength : 8,
+
     }
   }
 
   render() {
 
-    const handleChange = (e) =>{
-      e.preventDefault();
-      this.setState({passwordLength : e.target.value});
+    const sendLength = () =>{
+      this.props.passwordInputValue(this.state.passwordLength);
     }
+    const handleChange = async (e) =>{
+      e.preventDefault();
+      this.setState({passwordLength : e.target.value}, sendLength); // updating the value, and  after updating then, calling a callback function (sendLength).
+    }
+
+
     return (
-      <div>
-        <div className='flex flex-row py-2'>
+        <div className='flex flex-row py-2 justify-center'>
           <label htmlFor='passwordlength' className='flex flex-row gap-10 items-center text-xl'>Password Length&#58;
-            <input className='w-20 p-1 ' id='passwordlength' placeholder='6' value={this.state.passwordLength} type='number' min={minNumberInput} max={maxNumberInput} onChange={handleChange}/>
+            <input className='w-20 py-1 px-2 rounded-md bg-gray-100' id='passwordlength' value={this.state.passwordLength} type='number' min={minNumberInput} max={maxNumberInput} onChange={handleChange}/>
           </label>
         </div>
-      </div>
     )
   }
 }
