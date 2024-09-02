@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 import { PasswordInput } from './PasswordInput'
 import ToggleButtons from './ToggleButton/ToggleButtons'
 import { GenerateButton } from './GenerateButton'
+import { PasswordOutput } from './PasswordOutput'
 
 export const MainBox = () => {
 
   const [passwordValue, setPasswordValue] = useState(null);
-
 
   const handlePasswordValue = async (data) =>{
     setPasswordValue(data);
@@ -26,6 +26,7 @@ export const MainBox = () => {
         <GenerateButton/>
         </div>
       </div>
+      <PasswordOutput/>
     </div>
   )
 }
