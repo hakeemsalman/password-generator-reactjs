@@ -23,7 +23,6 @@ export  class PasswordInput extends Component {
   
     this.state = {
        passwordLength : 8,
-
     }
   }
 
