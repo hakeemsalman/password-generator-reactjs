@@ -4,13 +4,8 @@ export const PasswordOutput = (props) => {
 
   const handleCapture = () => {
     let copyText = props.password;
-    navigator.clipboard.writeText(copyText)
-    .then(result => {
-      console.log('result:', result);
-    }).catch(error =>{
-      throw new Error("Error", error);
-    })
-    
+    navigator.clipboard.writeText(copyText);
+
   }
   return (
     <div className='flex flex-row gap-5 justify-between'>
