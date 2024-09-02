@@ -7,14 +7,17 @@ export default class ToggleButtons extends Component {
     super(props)
   
     this.state = {
-       isChecked: false
+       isChecked: false,
+       id: null
     }
   }
   render() {
     const handleChange = (e) =>{
-      let isChecked = e.target.checked ;
-      console.log('toggle->',isChecked);
-      this.setState({isChecked: isChecked})
+      let isChecked = e.target.checked;
+      let idValue = e.target.id;
+      this.setState({isChecked: isChecked, id: idValue}, () =>{
+        this.props.updatedToggleData(this.state);
+      })
     }
     return (
       <div className="flex items-center w-full py-2">
